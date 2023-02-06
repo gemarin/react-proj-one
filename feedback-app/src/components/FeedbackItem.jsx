@@ -1,16 +1,20 @@
-import React from 'react';
+import React, {
+  useContext,
+} from 'react';
 import Card from './shared/Card.jsx';
 import PropTypes from 'prop-types';
 import { FaTimes } from 'react-icons/fa';
+
+import FeedbackContext from '../context/FeedbackContext.js';
 
 FeedbackItem.propTypes = {
   item: PropTypes.object.isRequired,
 };
 
-function FeedbackItem({
-  item,
-  handleDelete,
-}) {
+function FeedbackItem({ item }) {
+  const { deleteFeedback } = useContext(
+    FeedbackContext
+  );
   return (
     <Card>
       <div className='num-display'>
@@ -18,7 +22,7 @@ function FeedbackItem({
       </div>
       <button
         onClick={() =>
-          handleDelete(item.id)
+          deleteFeedback(item.id)
         }
         className='close'
       >
