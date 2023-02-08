@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom';
 
 import Header from './components/Header.jsx';
-import FeedbackData from './data/FeedbackData.js';
 import FeedbackList from './components/FeedbackList.jsx';
 import FeedbackStats from './components/FeedbackStats.jsx';
 import FeedbackForm from './components/FeedbackForm.jsx';

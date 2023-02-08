@@ -3,7 +3,10 @@ import React, {
 } from 'react';
 import Card from './shared/Card.jsx';
 import PropTypes from 'prop-types';
-import { FaTimes } from 'react-icons/fa';
+import {
+  FaTimes,
+  FaEdit,
+} from 'react-icons/fa';
 
 import FeedbackContext from '../context/FeedbackContext.js';
 
@@ -12,9 +15,10 @@ FeedbackItem.propTypes = {
 };
 
 function FeedbackItem({ item }) {
-  const { deleteFeedback } = useContext(
-    FeedbackContext
-  );
+  const {
+    deleteFeedback,
+    editFeedback,
+  } = useContext(FeedbackContext);
   return (
     <Card>
       <div className='num-display'>
@@ -27,6 +31,14 @@ function FeedbackItem({ item }) {
         className='close'
       >
         <FaTimes color='purple' />
+      </button>
+      <button
+        className='edit'
+        onClick={() =>
+          editFeedback(item)
+        }
+      >
+        <FaEdit color='purple' />
       </button>
       <div className='text-display'>
         {item.text}
